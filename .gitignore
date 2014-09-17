@@ -1,0 +1,32 @@
+# OS X noise
+.DS_Store
+
+# TextMate noise
+*.tm_build_errors
+
+# Xcode noise, after https://github.com/github/gitignore/blob/master/Objective-C.gitignore
+build/*
+#*.xcworkspace
+#!default.xcworkspace
+*.moved-aside
+*~.nib
+
+# XCode (and ancestors) per-user config (very noisy, and not relevant)
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+
+# Xcode 4 http://stackoverflow.com/questions/49478/git-ignore-file-for-xcode-projects
+xcuserdata
+
+# Xcode 5
+*.xccheckout
+
+# used to add version strings to *-Info.plist
+*/*-Info-plist.h
+
+# Submodule
+mapsandbox
