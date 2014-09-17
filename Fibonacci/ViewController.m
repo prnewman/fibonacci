@@ -18,8 +18,10 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    
+static const NSInteger kMaxResults = 20;
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
@@ -28,7 +30,8 @@
     [self.submitButton addTarget:self action:@selector(submitButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -37,38 +40,37 @@
 
 - (void)submitButtonTapped:(id)sender
 {
-    NSLog(@"seed number: %@", self.inputTextField.text);
+//    NSLog(@"start index: %@", self.inputTextField.text);
     
-    NSInteger startPosition = [self.inputTextField.text integerValue];
-    NSInteger endPosition = startPosition + 20;
+    NSInteger startIndex = [self.inputTextField.text integerValue];
+    NSInteger endIndex = startIndex + kMaxResults;
     
-    while (startPosition < endPosition) {
+    NSLog(@"Sequence:\n\n");
+    
+    while (startIndex < endIndex) {
         
-        if (startPosition == 0){
-            NSLog(@"value: %@", @(startPosition));
-        }
-        else{
-            NSInteger returnValue = [self generateFibonacciSequence:startPosition];
-            NSLog(@"value: %@", @(returnValue));
-        }
-        
-        startPosition++;
+        long returnValue = [self getFibonacciNumberAtIndex:startIndex];
+        NSLog(@"value: %@", @(returnValue));
+
+        startIndex++;
     }
 }
 
 #pragma mark - Helper methods
 
-- (NSInteger)generateFibonacciSequence:(NSInteger)seedNumber
+// Changed NSInteger to long because Fibonacci numbers get so large
+- (long)getFibonacciNumberAtIndex:(long)seedNumber
 {
     if (seedNumber <= 2) {
-        return 1;
+        return (seedNumber == 0) ? seedNumber : 1;
     }
     
     if (self.fibonacciNumbers[@(seedNumber)]) {
-        return [self.fibonacciNumbers[@(seedNumber)] intValue];
+        return [self.fibonacciNumbers[@(seedNumber)] longValue];
     }
     
-    NSInteger returnValue = [self generateFibonacciSequence:seedNumber-1] + [self generateFibonacciSequence:seedNumber-2];
+    long returnValue = [self getFibonacciNumberAtIndex:seedNumber-1] + [self getFibonacciNumberAtIndex:seedNumber-2];
+    // cache result for performance
     self.fibonacciNumbers[@(seedNumber)] = @(returnValue);
     
     return returnValue;
