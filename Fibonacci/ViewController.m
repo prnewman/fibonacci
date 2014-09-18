@@ -18,7 +18,7 @@
 
 @implementation ViewController
 
-static const NSInteger kMaxResults = 20;
+static const NSInteger kMaxResults = 40;
 
 - (void)viewDidLoad
 {
@@ -42,7 +42,7 @@ static const NSInteger kMaxResults = 20;
 {
 //    NSLog(@"start index: %@", self.inputTextField.text);
     
-    NSInteger startIndex = [self.inputTextField.text integerValue];
+    NSInteger startIndex = [self.inputTextField.text intValue];
     NSInteger endIndex = startIndex + kMaxResults;
     
     NSLog(@"Sequence:\n\n");
