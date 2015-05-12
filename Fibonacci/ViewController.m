@@ -59,19 +59,19 @@ static const NSInteger kMaxResults = 40;
 #pragma mark - Helper methods
 
 // Changed NSInteger to long because Fibonacci numbers get so large
-- (long)getFibonacciNumberAtIndex:(long)seedNumber
+- (long)getFibonacciNumberAtIndex:(long)n
 {
-    if (seedNumber <= 2) {
-        return (seedNumber == 0) ? seedNumber : 1;
+    if (n <= 2) {
+        return (n == 0) ? n : 1;
     }
     
-    if (self.fibonacciNumbers[@(seedNumber)]) {
-        return [self.fibonacciNumbers[@(seedNumber)] longValue];
+    if (self.fibonacciNumbers[@(n)]) {
+        return [self.fibonacciNumbers[@(n)] longValue];
     }
     
-    long returnValue = [self getFibonacciNumberAtIndex:seedNumber-1] + [self getFibonacciNumberAtIndex:seedNumber-2];
+    long returnValue = [self getFibonacciNumberAtIndex:n-1] + [self getFibonacciNumberAtIndex:n-2];
     // cache result for performance
-    self.fibonacciNumbers[@(seedNumber)] = @(returnValue);
+    self.fibonacciNumbers[@(n)] = @(returnValue);
     
     return returnValue;
 }
