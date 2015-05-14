@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9fN-t4-1iy">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter index" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gWI-CH-aMo">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter index" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gWI-CH-aMo">
                                 <rect key="frame" x="246" y="252" width="108.5" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="109" id="OFn-xY-XmP"/>
@@ -37,13 +37,35 @@
                                     <rect key="frame" x="100" y="227" width="108.5" height="30"/>
                                 </variation>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Epc-Qz-891">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Epc-Qz-891">
                                 <rect key="frame" x="277" y="285" width="46" height="30"/>
                                 <state key="normal" title="Start">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="184" y="330" width="33" height="30"/>
+                                </variation>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="216" y="227" width="46" height="30"/>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Za7-Eb-nfw">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="138" id="LgG-Dw-vr5"/>
+                                </constraints>
+                                <state key="normal" title="Scrolling Version">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="LgG-Dw-vr5"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="LgG-Dw-vr5"/>
+                                    </mask>
                                 </variation>
                             </button>
                         </subviews>
@@ -51,33 +73,66 @@
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="gWI-CH-aMo" secondAttribute="centerX" id="3IK-DL-ZD5"/>
                             <constraint firstAttribute="centerY" secondItem="gWI-CH-aMo" secondAttribute="centerY" id="CDB-Oa-DgC"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Za7-Eb-nfw" secondAttribute="bottom" constant="30" id="Dx3-jL-EOl"/>
                             <constraint firstAttribute="centerX" secondItem="Epc-Qz-891" secondAttribute="centerX" id="Zkl-fz-lKp"/>
+                            <constraint firstItem="Za7-Eb-nfw" firstAttribute="centerX" secondItem="Epc-Qz-891" secondAttribute="centerX" id="bEN-1f-A5S"/>
                             <constraint firstItem="Epc-Qz-891" firstAttribute="top" secondItem="gWI-CH-aMo" secondAttribute="bottom" constant="8" id="eSM-Er-Kwy"/>
                         </constraints>
                         <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Za7-Eb-nfw"/>
+                            </mask>
                             <mask key="constraints">
                                 <exclude reference="3IK-DL-ZD5"/>
                                 <exclude reference="CDB-Oa-DgC"/>
                                 <exclude reference="Zkl-fz-lKp"/>
                                 <exclude reference="eSM-Er-Kwy"/>
+                                <exclude reference="bEN-1f-A5S"/>
+                                <exclude reference="Dx3-jL-EOl"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Za7-Eb-nfw"/>
+                            </mask>
                             <mask key="constraints">
                                 <include reference="3IK-DL-ZD5"/>
                                 <include reference="CDB-Oa-DgC"/>
                                 <include reference="Zkl-fz-lKp"/>
                                 <include reference="eSM-Er-Kwy"/>
+                                <include reference="bEN-1f-A5S"/>
+                                <include reference="Dx3-jL-EOl"/>
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="FVE-J7-SD6"/>
                     <connections>
                         <outlet property="inputTextField" destination="gWI-CH-aMo" id="JyT-V9-5BS"/>
+                        <outlet property="scrollButton" destination="Za7-Eb-nfw" id="pVj-TJ-N5v"/>
                         <outlet property="submitButton" destination="Epc-Qz-891" id="dPJ-Ei-ely"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="2319" y="292"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UbD-UX-GE2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9fN-t4-1iy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jKm-LO-zXG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="ETn-ex-Z4C"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6pU-UT-J2N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1453.5" y="292"/>
         </scene>
     </scenes>
 </document>

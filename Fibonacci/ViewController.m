@@ -7,18 +7,20 @@
 //
 
 #import "ViewController.h"
+#import "FibTableViewController.h"
 
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *inputTextField;
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
+@property (weak, nonatomic) IBOutlet UIButton *scrollButton;
 @property (nonatomic, strong) NSMutableDictionary *fibonacciNumbers;
 
 @end
 
 @implementation ViewController
 
-static const NSInteger kMaxResults = 40;
+static const NSInteger kMaxResults = 50;
 
 - (void)viewDidLoad
 {
@@ -28,6 +30,7 @@ static const NSInteger kMaxResults = 40;
     self.fibonacciNumbers = [NSMutableDictionary new];
     
     [self.submitButton addTarget:self action:@selector(submitButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.scrollButton addTarget:self action:@selector(scrollButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,6 +40,12 @@ static const NSInteger kMaxResults = 40;
 }
 
 #pragma mark - Button handlers
+
+- (void)scrollButtonTapped:(id)sender
+{
+    FibTableViewController *fibViewController = [[FibTableViewController alloc] init];
+    [self.navigationController pushViewController:fibViewController animated:YES];
+}
 
 - (void)submitButtonTapped:(id)sender
 {
@@ -50,7 +59,7 @@ static const NSInteger kMaxResults = 40;
     while (startIndex < endIndex) {
         
         long returnValue = [self getFibonacciNumberAtIndex:startIndex];
-        NSLog(@"value: %@", @(returnValue));
+        NSLog(@"%@ value: %@", @(startIndex), @(returnValue));
 
         startIndex++;
     }
