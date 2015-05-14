@@ -86,14 +86,14 @@
 			children = (
 				0A9471DB19C999BF00EA2034 /* AppDelegate.h */,
 				0A9471DC19C999BF00EA2034 /* AppDelegate.m */,
+				0AC2453B1B0221D60083CA43 /* FibTableViewController.h */,
+				0AC2453C1B0221D60083CA43 /* FibTableViewController.m */,
 				0A9471DE19C999BF00EA2034 /* ViewController.h */,
 				0A9471DF19C999BF00EA2034 /* ViewController.m */,
 				0A9471E119C999BF00EA2034 /* Main.storyboard */,
 				0A9471E419C999BF00EA2034 /* Images.xcassets */,
 				0A9471E619C999BF00EA2034 /* LaunchScreen.xib */,
 				0A9471D719C999BF00EA2034 /* Supporting Files */,
-				0AC2453B1B0221D60083CA43 /* FibTableViewController.h */,
-				0AC2453C1B0221D60083CA43 /* FibTableViewController.m */,
 			);
 			path = Fibonacci;
 			sourceTree = "<group>";

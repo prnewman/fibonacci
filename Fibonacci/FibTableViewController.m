@@ -120,7 +120,7 @@ static const NSInteger kDefaultPageSize = 40;
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    if (indexPath.row >= self.datasource.count) { // 41, 81, etc.
+    if (indexPath.row == self.datasource.count) { // 40, 80, etc.
         cell.textLabel.text = @"Loading...";
     }
     else{
