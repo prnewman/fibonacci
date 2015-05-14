@@ -9,15 +9,6 @@
 #import "FibTableViewController.h"
 
 @interface FibTableViewController ()
-{
-//    int64_t seedValue1;
-//    int64_t seedValue2;
-//    int64_t hold;
-    
-    long seedValue1;
-    long seedValue2;
-    long hold;
-}
 
 @property (nonatomic, strong) NSMutableArray *datasource;
 @property (nonatomic, assign) NSInteger currentPage;
@@ -31,14 +22,11 @@
 static NSString *CellIdentifier = @"CellIdentifier";
 static const NSInteger kDefaultPageSize = 40;
 
-- (id)init
+- (instancetype)init
 {
     self = [super init];
     if (self) {
         // initialization
-        seedValue1 = 0;
-        seedValue2 = 1;
-        
         self.limit = kDefaultPageSize;
         self.offset = 0;
         self.datasource = [NSMutableArray new];
@@ -86,10 +74,7 @@ static const NSInteger kDefaultPageSize = 40;
     
     while (startIndex < endIndex) {
         
-        //long fib = [self fibAtIndex:startIndex];
         long fib = [self fibonacci:startIndex];
-
-        NSLog(@"%@ value: %@", @(startIndex), @(fib));
         [self.datasource addObject:@(fib)];
         
         startIndex++;
@@ -99,20 +84,6 @@ static const NSInteger kDefaultPageSize = 40;
 }
 
 #pragma mark - Helper methods
-
-- (long)fibAtIndex:(NSInteger)index
-{
-    if (index < 2) {
-        hold = (index == 0) ? index : 1;
-        return hold;
-    }
-
-    hold = seedValue1 + seedValue2;
-    seedValue1 = seedValue2;
-    seedValue2 = hold;
-
-    return hold;
-}
 
 // http://rosettacode.org/wiki/Fibonacci_sequence#Objective-C
 - (long)fibonacci:(NSInteger)index
@@ -149,7 +120,7 @@ static const NSInteger kDefaultPageSize = 40;
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    if (indexPath.row >= self.datasource.count) { // 21, 41, etc.
+    if (indexPath.row >= self.datasource.count) { // 41, 81, etc.
         cell.textLabel.text = @"Loading...";
     }
     else{
@@ -164,9 +135,7 @@ static const NSInteger kDefaultPageSize = 40;
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //NSLog(@"Will display row %@", @(indexPath.row));
-    
-    if (indexPath.row == self.datasource.count - 1) {
+    if (indexPath.row == self.datasource.count) {
         [self requestMoreData];
     }
 }
